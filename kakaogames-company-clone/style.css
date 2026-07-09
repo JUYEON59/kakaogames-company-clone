@@ -1,0 +1,28 @@
+header {
+    border: 1px solid red;
+}
+.top-bar {
+    border: 1px solid orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 74px;
+    padding-left: 30px; padding-right: 30px;
+}
+.logo-box {
+    border: 1px solid green;
+    background-color: blue;
+}
+.logo-box img {
+    width: 123px;
+}
+.menu01 {
+    border: 1px solid green;
+}
+.menu01>ul {
+    display: flex;
+    
+}
+.lang-box {
+    border: 1px solid green;
+}
