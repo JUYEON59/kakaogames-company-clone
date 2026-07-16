@@ -3,26 +3,70 @@ header {
 }
 .top-bar {
     border: 1px solid orange;
+    background-color: gray;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 74px;
-    padding-left: 30px; padding-right: 30px;
+    height: 75px;
+    padding-left: 45px; padding-right: 33px;
+    position: relative;
+    transition: 0.5s;
 }
+
 .logo-box {
     border: 1px solid green;
-    background-color: blue;
 }
 .logo-box img {
     width: 123px;
 }
+
 .menu01 {
     border: 1px solid green;
+    height: 100%;
 }
-.menu01>ul {
+.menu01-ul {
     display: flex;
-    
+    align-items: center;
+    height: 100%;
 }
-.lang-box {
+.m01-item > a {
+    color: #FFF; font-size: 18px;
+    padding-left: 32px; padding-right: 32px;
+    padding-bottom: 3px;
+}
+.menu02 {
+    border: 1px solid blue;
+    height: 0; transition: 0.5s;
+    overflow: hidden;
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+}
+
+.menu01:hover > .menu02 {
+    height: 361px; 
+}
+
+.menu02-ul {
     border: 1px solid green;
+    display: flex;
+    justify-content: center;
+}
+.m02-item {
+    padding-top: 30px; padding-bottom: 30px;
+}
+.m02-item > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.lang-box {
+    border: 1px solid #FFF;
+    border-radius: 18px;
+    display: flex; gap: 12px;
+    padding-left: 11px; padding-right: 19px;
+    padding-top: 9px; padding-bottom: 8px;
+}
+.lang-item {
+    color: #FFF;
 }
