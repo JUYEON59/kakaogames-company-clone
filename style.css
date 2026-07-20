@@ -42,6 +42,20 @@ header {
     left: 0; right: 0; top: 100%;
 }
 
+
+.top-bar:has(.menu01:hover) {
+    background-color: #FFF;
+}
+.top-bar:has(.menu01:hover) .logo-box img {
+    filter: invert(1);
+}
+.menu01:hover .m01-item > a {
+    color: #000;
+}
+.top-bar:has(.menu01:hover) .lang-box {
+    filter: invert(1);
+}
+
 .menu01:hover > .menu02 {
     height: 361px; 
 }
