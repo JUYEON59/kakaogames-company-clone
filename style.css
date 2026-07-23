@@ -1,5 +1,8 @@
+/* 헤더 및 상단바 */
 header {
     border: 1px solid red;
+    position: relative;
+    z-index: 100;
 }
 .top-bar {
     border: 1px solid orange;
@@ -10,9 +13,9 @@ header {
     height: 75px;
     padding-left: 45px; padding-right: 33px;
     position: relative;
-    transition: 0.5s;
 }
 
+/* 로고 */
 .logo-box {
     border: 1px solid green;
 }
@@ -20,6 +23,7 @@ header {
     width: 123px;
 }
 
+/* 1차 메뉴 */
 .menu01 {
     border: 1px solid green;
     height: 100%;
@@ -29,44 +33,168 @@ header {
     align-items: center;
     height: 100%;
 }
+.m01-item {
+    height: 100%;
+    position: relative;
+}
 .m01-item > a {
+    border: 1px solid yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     color: #FFF; font-size: 18px;
     padding-left: 32px; padding-right: 32px;
-    padding-bottom: 3px;
+    transition: padding 0.5s ease;
 }
+.menu01::after {
+    content: "";
+    background-color: #FFF;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0; 
+    height: 0; 
+    transition: height 0.5s ease; 
+    z-index: 5;
+    border-bottom: 1px solid transparent; 
+}
+
+/* 2차 메뉴 */
 .menu02 {
     border: 1px solid blue;
-    height: 0; transition: 0.5s;
-    overflow: hidden;
     position: absolute;
-    left: 0; right: 0; top: 100%;
+    left: 50%; right: 0; top: 100%;
+    transform: translateX(-50%);
+    width: max-content;
+    height: 0; 
+    transition: height 0.5s ease;
+    overflow: hidden;
+    z-index: 10;
 }
-
-.menu01:hover > .menu02 {
-    height: 361px; 
-}
-
 .menu02-ul {
     border: 1px solid green;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 32px; 
+    align-items: center;
+    padding-top: 30px; padding-bottom: 30px;
 }
-.m02-item {
+.menu02-ul li a {
+    color: #666;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+.menu02-ul li a:hover {
+    color: #000;
+    font-weight: bold;
+}
+/* .m02-item {
+    border: 1px solid bisque;
     padding-top: 30px; padding-bottom: 30px;
 }
 .m02-item > ul {
     display: flex;
     flex-direction: column;
     gap: 32px;
+} */
+
+/* 1차 메뉴 호버 시 */
+.top-bar:has(.menu01:hover) {
+    background-color: #FFF; 
+}
+.top-bar:has(.menu01:hover) .logo-box img {
+    filter: invert(1); 
+}
+.top-bar:has(.menu01:hover) .m01-item > a {
+    color: #000; 
+}
+.menu01:hover .m01-item > a {
+    padding-left: calc(32px + 4px);
+    padding-right: calc(32px + 4px);
 }
 
+.menu01:hover .menu02,
+.menu01:hover::after {
+    height: 361px;
+}
+.menu01:hover::after {
+    border-bottom-color: #eee; 
+}
+/* .top-bar:has(.menu01:hover) {
+    background-color: #FFF;
+    color: #000;
+}
+.top-bar:has(.menu01:hover) .logo-box {
+    filter: invert(1);
+}
+.menu01:hover .m01-item > a {
+    color: #000;
+    padding-left: calc(32px + 4px);
+    padding-right: calc(32px + 4px);
+}
+.top-bar:has(.menu01:hover) .lang-box {
+    border-color: #000;
+}
+.top-bar:has(.menu01:hover) .lang-icon img {
+    filter: invert(1);
+}
+.top-bar:has(.menu01:hover) .lang-item {
+    color: #000;
+}
+
+.menu01:hover > .menu02 {
+    height: 361px; 
+} */
+
+/* 언어 선택 박스 드롭 다운 */
 .lang-box {
     border: 1px solid #FFF;
     border-radius: 18px;
     display: flex; gap: 12px;
+    align-items: flex-start;
     padding-left: 11px; padding-right: 19px;
     padding-top: 9px; padding-bottom: 8px;
+    height: 38px;
+    box-sizing: border-box; 
+    overflow: hidden;
+    transition: height 0.3s ease; 
+    cursor: pointer; 
+    background-color: transparent;
 }
-.lang-item {
+.lang-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+.lang-item a {
     color: #FFF;
+    font-size: 14px;
+    font-weight: bold;
 }
+.top-bar:has(.menu01:hover) .lang-box {
+    border-color: #ccc;
+}
+.top-bar:has(.menu01:hover) .lang-item a {
+    color: #000;
+}
+.top-bar:has(.menu01:hover) .lang-icon img {
+    filter: invert(1);
+}
+
+.lang-box:hover {
+    height: 72px; 
+    background-color: #FFF; 
+    border-color: #FFF;
+}
+.lang-box:hover .lang-item a {
+    color: #000;
+}
+.lang-box:hover .lang-icon img {
+    filter: invert(1);
+}
+.top-bar:has(.menu01:hover) .lang-box:hover {
+    border-color: #000; 
+}
+/* .lang-item {
+    color: #FFF;
+} */
